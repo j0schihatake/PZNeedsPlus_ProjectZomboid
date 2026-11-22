@@ -1,0 +1,8 @@
+version=1
+title=PZ Needs Plus
+description=Auto care for the survivor: bandage bleeding wounds and take painkillers, eat and drink only outside combat.
+description=Infinite weapon condition, infinite ammunition reserve and magazines with normal reload, plus an optional instant magazine refill.
+description=All features are individual toggles in Mod Options. No dependencies.
+description=B42.22. Actions use native timed actions and do not add custom items or UI.
+tags=Build 42
+visibility=public
