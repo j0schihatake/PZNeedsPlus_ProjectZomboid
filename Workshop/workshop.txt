@@ -1,4 +1,5 @@
 version=1
+id=3844082862
 title=PZ Needs Plus
 description=Auto care for the survivor: bandage bleeding wounds and take painkillers, eat and drink only outside combat.
 description=Infinite weapon condition, infinite ammunition reserve and magazines with normal reload, plus an optional instant magazine refill.
