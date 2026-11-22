@@ -1,0 +1,10 @@
+{
+  "UI_PZNeedsPlus_Title": "PZ Needs Plus",
+  "UI_PZNeedsPlus_AutoEat": "Auto eat outside combat",
+  "UI_PZNeedsPlus_AutoDrink": "Auto drink outside combat",
+  "UI_PZNeedsPlus_AutoHeal": "Auto bandage / pain relief",
+  "UI_PZNeedsPlus_InfiniteDurability": "Infinite weapon condition",
+  "UI_PZNeedsPlus_InfiniteAmmo": "Infinite ammo reserve",
+  "UI_PZNeedsPlus_InfiniteMagazine": "Instant magazine refill",
+  "UI_PZNeedsPlus_AutoReload": "Auto reload"
+}

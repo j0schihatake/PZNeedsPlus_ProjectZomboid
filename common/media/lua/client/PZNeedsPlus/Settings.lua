@@ -1,20 +1,25 @@
 local Settings = {}
 local page
+local function tr(key, fallback)
+    local ok, value = pcall(getText, key)
+    if ok and value and value ~= key then return value end
+    return fallback
+end
 
 local ok = pcall(require, "PZAPI/ModOptions")
 if ok and PZAPI and PZAPI.ModOptions then
     page = PZAPI.ModOptions:getOptions("PZNeedsPlus")
-        or PZAPI.ModOptions:create("PZNeedsPlus", "PZ Needs Plus")
+        or PZAPI.ModOptions:create("PZNeedsPlus", tr("UI_PZNeedsPlus_Title", "PZ Needs Plus"))
     local function tick(key, label, default)
         if not page:getOption(key) then page:addTickBox(key, label, default, "") end
     end
-    tick("autoEat", "Auto eat outside combat", true)
-    tick("autoDrink", "Auto drink outside combat", true)
-    tick("autoHeal", "Auto bandage / pain relief", true)
-    tick("infiniteDurability", "Infinite weapon condition", true)
-    tick("infiniteAmmo", "Infinite ammo reserve", true)
-    tick("infiniteMagazine", "Refill magazine instantly (no reload needed)", false)
-    tick("autoReload", "Auto reload empty / partial magazine", true)
+    tick("autoEat", tr("UI_PZNeedsPlus_AutoEat", "Auto eat outside combat"), true)
+    tick("autoDrink", tr("UI_PZNeedsPlus_AutoDrink", "Auto drink outside combat"), true)
+    tick("autoHeal", tr("UI_PZNeedsPlus_AutoHeal", "Auto bandage / pain relief"), true)
+    tick("infiniteDurability", tr("UI_PZNeedsPlus_InfiniteDurability", "Infinite weapon condition"), true)
+    tick("infiniteAmmo", tr("UI_PZNeedsPlus_InfiniteAmmo", "Infinite ammo reserve"), true)
+    tick("infiniteMagazine", tr("UI_PZNeedsPlus_InfiniteMagazine", "Refill magazine instantly (no reload needed)"), false)
+    tick("autoReload", tr("UI_PZNeedsPlus_AutoReload", "Auto reload empty / partial magazine"), true)
 end
 
 local DEFAULTS = {
