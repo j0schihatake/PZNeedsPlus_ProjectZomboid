@@ -21,27 +21,27 @@ local function isWood(item)
     return tag
 end
 
-local function apply(item, zero)
+local function apply(item, factor)
     local data = item:getModData()
     local base = data.PZNeedsPlusWoodBaseWeight
     if type(base) ~= 'number' or base <= 0 then
         base = item:getActualWeight()
         data.PZNeedsPlusWoodBaseWeight = base
     end
-    local target = zero and 0 or base
+    local target = base * factor
     if math.abs(item:getActualWeight() - target) > 0.0001 then
         item:setActualWeight(target)
     end
 end
 
-local function scan(container, zero, budget, depth)
+local function scan(container, factor, budget, depth)
     if not container or depth > 2 or budget.n > 400 then return end
     local items = container:getItems()
     for i = 0, items:size() - 1 do
         local item = items:get(i)
         budget.n = budget.n + 1
-        if isWood(item) then pcall(apply, item, zero) end
-        if item:IsInventoryContainer() then scan(item:getInventory(), zero, budget, depth + 1) end
+        if isWood(item) then pcall(apply, item, factor) end
+        if item:IsInventoryContainer() then scan(item:getInventory(), factor, budget, depth + 1) end
     end
 end
 
@@ -51,10 +51,9 @@ local function tick()
     local now = getTimestampMs()
     if now - last < INTERVAL_MS then return end
     last = now
-    local zero = Settings.zeroWoodWeight()
-    if zero == false and not Settings.woodWeightTouched() then return end
+    local factor = Settings.materialWeightFactor()
     local budget = { n = 0 }
-    scan(player:getInventory(), zero, budget, 0)
+    scan(player:getInventory(), factor, budget, 0)
 end
 
 function WoodWeight.install()

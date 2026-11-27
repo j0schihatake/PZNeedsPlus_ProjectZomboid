@@ -11,5 +11,10 @@
   "UI_PZNeedsPlus_AnimationFast": "Быстро",
   "UI_PZNeedsPlus_AnimationMedium": "Средне",
   "UI_PZNeedsPlus_AnimationLong": "Долго",
-  "UI_PZNeedsPlus_ZeroWoodWeight": "Обнулить вес древесины и стройматериалов"
+  "UI_PZNeedsPlus_ZeroWoodWeight": "Обнулить вес древесины и стройматериалов",
+  "UI_PZNeedsPlus_MaterialWeight": "Снижение веса материалов",
+  "UI_PZNeedsPlus_Weight0": "0%",
+  "UI_PZNeedsPlus_Weight20": "20%",
+  "UI_PZNeedsPlus_Weight50": "50%",
+  "UI_PZNeedsPlus_Weight100": "100%"
 }
