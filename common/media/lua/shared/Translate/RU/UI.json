@@ -10,5 +10,6 @@
   "UI_PZNeedsPlus_AnimationSpeed": "Скорость анимации еды и питья",
   "UI_PZNeedsPlus_AnimationFast": "Быстро",
   "UI_PZNeedsPlus_AnimationMedium": "Средне",
-  "UI_PZNeedsPlus_AnimationLong": "Долго"
+  "UI_PZNeedsPlus_AnimationLong": "Долго",
+  "UI_PZNeedsPlus_ZeroWoodWeight": "Обнулить вес древесины и стройматериалов"
 }

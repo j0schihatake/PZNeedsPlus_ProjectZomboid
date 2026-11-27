@@ -10,5 +10,6 @@
   "UI_PZNeedsPlus_AnimationSpeed": "Eat/drink animation speed",
   "UI_PZNeedsPlus_AnimationFast": "Fast",
   "UI_PZNeedsPlus_AnimationMedium": "Medium",
-  "UI_PZNeedsPlus_AnimationLong": "Long"
+  "UI_PZNeedsPlus_AnimationLong": "Long",
+  "UI_PZNeedsPlus_ZeroWoodWeight": "Zero weight of wood / building materials"
 }
