@@ -6,5 +6,9 @@
   "UI_PZNeedsPlus_InfiniteDurability": "Infinite weapon condition",
   "UI_PZNeedsPlus_InfiniteAmmo": "Infinite ammo reserve",
   "UI_PZNeedsPlus_InfiniteMagazine": "Instant magazine refill",
-  "UI_PZNeedsPlus_AutoReload": "Auto reload"
+  "UI_PZNeedsPlus_AutoReload": "Auto reload",
+  "UI_PZNeedsPlus_AnimationSpeed": "Eat/drink animation speed",
+  "UI_PZNeedsPlus_AnimationFast": "Fast",
+  "UI_PZNeedsPlus_AnimationMedium": "Medium",
+  "UI_PZNeedsPlus_AnimationLong": "Long"
 }

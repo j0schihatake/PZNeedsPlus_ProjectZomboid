@@ -6,5 +6,9 @@
   "UI_PZNeedsPlus_InfiniteDurability": "Бесконечная прочность оружия",
   "UI_PZNeedsPlus_InfiniteAmmo": "Бесконечный запас патронов",
   "UI_PZNeedsPlus_InfiniteMagazine": "Мгновенно наполнять магазин",
-  "UI_PZNeedsPlus_AutoReload": "Автоперезарядка"
+  "UI_PZNeedsPlus_AutoReload": "Автоперезарядка",
+  "UI_PZNeedsPlus_AnimationSpeed": "Скорость анимации еды и питья",
+  "UI_PZNeedsPlus_AnimationFast": "Быстро",
+  "UI_PZNeedsPlus_AnimationMedium": "Средне",
+  "UI_PZNeedsPlus_AnimationLong": "Долго"
 }

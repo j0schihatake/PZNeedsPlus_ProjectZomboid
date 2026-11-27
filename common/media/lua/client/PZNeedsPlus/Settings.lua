@@ -20,12 +20,18 @@ if ok and PZAPI and PZAPI.ModOptions then
     tick("infiniteAmmo", tr("UI_PZNeedsPlus_InfiniteAmmo", "Infinite ammo reserve"), true)
     tick("infiniteMagazine", tr("UI_PZNeedsPlus_InfiniteMagazine", "Refill magazine instantly (no reload needed)"), false)
     tick("autoReload", tr("UI_PZNeedsPlus_AutoReload", "Auto reload empty / partial magazine"), true)
+    if page and not page:getOption("animationSpeed") then
+        local combo = page:addComboBox("animationSpeed", tr("UI_PZNeedsPlus_AnimationSpeed", "Eat/drink animation speed"), "")
+        combo:addItem("UI_PZNeedsPlus_AnimationFast")
+        combo:addItem("UI_PZNeedsPlus_AnimationMedium", true)
+        combo:addItem("UI_PZNeedsPlus_AnimationLong")
+    end
 end
 
 local DEFAULTS = {
     autoEat = true, autoDrink = true, autoHeal = true,
     infiniteDurability = true, infiniteAmmo = true,
-    infiniteMagazine = false, autoReload = true,
+    infiniteMagazine = false, autoReload = true, animationSpeed = 1,
 }
 
 local function value(key)
@@ -44,5 +50,10 @@ function Settings.infiniteDurability() return value("infiniteDurability") == tru
 function Settings.infiniteAmmo() return value("infiniteAmmo") == true end
 function Settings.infiniteMagazine() return value("infiniteMagazine") == true end
 function Settings.autoReload() return value("autoReload") == true end
+function Settings.animationSpeed()
+    local option = page and page:getOption("animationSpeed")
+    local v = option and option:getValue() or 1
+    return tonumber(v) or 1
+end
 
 return Settings

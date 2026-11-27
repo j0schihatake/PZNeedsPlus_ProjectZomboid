@@ -10,6 +10,16 @@ pcall(require, "TimedActions/ISDrinkFluidAction")
 pcall(require, "TimedActions/ISInventoryTransferAction")
 
 local INTERVAL = 2000
+
+local function speed(action)
+    local choice = Settings.animationSpeed()
+    local factor = choice == 0 and 0.5 or (choice == 2 and 1.6 or 1.0)
+    if factor == 1.0 then return action end
+    local base = action:getDuration()
+    action.maxTime = math.max(1, math.floor(base * factor))
+    action.getDuration = function(self) return self.maxTime end
+    return action
+end
 local lastCheck = 0
 
 local function stat(player, name)
@@ -158,13 +168,13 @@ local function execute(player, action)
         local item = findDrink(player)
         if not item then return false end
         ensureMain(player, item)
-        ISTimedActionQueue.add(ISDrinkFluidAction:new(player, item, 0.5))
+        ISTimedActionQueue.add(speed(ISDrinkFluidAction:new(player, item, 0.5)))
         return true
     elseif action == "eat" then
         local item = findFood(player)
         if not item then return false end
         ensureMain(player, item)
-        ISTimedActionQueue.add(ISEatFoodAction:new(player, item, 1))
+        ISTimedActionQueue.add(speed(ISEatFoodAction:new(player, item, 1)))
         return true
     end
     return false
