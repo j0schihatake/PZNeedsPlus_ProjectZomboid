@@ -27,6 +27,20 @@ if ok and PZAPI and PZAPI.ModOptions then
         combo:addItem("UI_PZNeedsPlus_Weight50")
         combo:addItem("UI_PZNeedsPlus_Weight100")
     end
+    if page and not page:getOption("enduranceReduction") then
+        local combo = page:addComboBox("enduranceReduction", tr("UI_PZNeedsPlus_Endurance", "Endurance drain reduction"), "")
+        combo:addItem("UI_PZNeedsPlus_Weight0")
+        combo:addItem("UI_PZNeedsPlus_Weight20", true)
+        combo:addItem("UI_PZNeedsPlus_Weight50")
+        combo:addItem("UI_PZNeedsPlus_Weight100")
+    end
+    if page and not page:getOption("carryWeight") then
+        local combo = page:addComboBox("carryWeight", tr("UI_PZNeedsPlus_CarryWeight", "Carry weight"), "")
+        combo:addItem("UI_PZNeedsPlus_Carry1", true)
+        combo:addItem("UI_PZNeedsPlus_Carry2")
+        combo:addItem("UI_PZNeedsPlus_Carry3")
+        combo:addItem("UI_PZNeedsPlus_Carry7")
+    end
     if page and not page:getOption("animationSpeed") then
         local combo = page:addComboBox("animationSpeed", tr("UI_PZNeedsPlus_AnimationSpeed", "Eat/drink animation speed"), "")
         combo:addItem("UI_PZNeedsPlus_AnimationFast")
@@ -38,7 +52,7 @@ end
 local DEFAULTS = {
     autoEat = true, autoDrink = true, autoHeal = true,
     infiniteDurability = true, infiniteAmmo = true,
-    infiniteMagazine = false, autoReload = true, animationSpeed = 1, materialWeightReduction = 20,
+    infiniteMagazine = false, autoReload = true, animationSpeed = 1, materialWeightReduction = 20, enduranceReduction = 20, carryWeight = 1,
 }
 
 local function value(key)
@@ -57,6 +71,19 @@ function Settings.infiniteDurability() return value("infiniteDurability") == tru
 function Settings.infiniteAmmo() return value("infiniteAmmo") == true end
 function Settings.infiniteMagazine() return value("infiniteMagazine") == true end
 function Settings.autoReload() return value("autoReload") == true end
+function Settings.enduranceReduction()
+    local option = page and page:getOption("enduranceReduction")
+    if not option then return 20 end
+    local v = tonumber(option:getValue()) or 1
+    return v == 0 and 0 or (v == 1 and 20 or (v == 2 and 50 or 100))
+end
+function Settings.enduranceFactor() return Settings.enduranceReduction() / 100 end
+function Settings.carryWeightMultiplier()
+    local option = page and page:getOption("carryWeight")
+    if not option then return 1 end
+    local v = tonumber(option:getValue()) or 0
+    return v == 0 and 1 or (v == 1 and 2 or (v == 2 and 3 or 7))
+end
 function Settings.materialWeightReduction()
     local option = page and page:getOption("materialWeightReduction")
     if not option then return 20 end

@@ -2,6 +2,7 @@ local Settings = require "PZNeedsPlus/Settings"
 local Care = require "PZNeedsPlus/Care"
 local Weapons = require "PZNeedsPlus/Weapons"
 local WoodWeight = require "PZNeedsPlus/WoodWeight"
+local StaminaWeight = require "PZNeedsPlus/StaminaWeight"
 
 pcall(require, "TimedActions/ISTimedActionQueue")
 pcall(require, "TimedActions/ISReloadWeaponAction")
@@ -41,6 +42,7 @@ local function install()
     Care.install()
     Weapons.install()
     WoodWeight.install()
+    StaminaWeight.install()
     Events.OnGameStart.Add(function() lastReload = 0 end)
     Events.OnPlayerUpdate.Add(function()
         local player = getSpecificPlayer(0)

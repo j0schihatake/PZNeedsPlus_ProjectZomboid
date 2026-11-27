@@ -16,5 +16,11 @@
   "UI_PZNeedsPlus_Weight0": "0%",
   "UI_PZNeedsPlus_Weight20": "20%",
   "UI_PZNeedsPlus_Weight50": "50%",
-  "UI_PZNeedsPlus_Weight100": "100%"
+  "UI_PZNeedsPlus_Weight100": "100%",
+  "UI_PZNeedsPlus_Endurance": "Снижение расхода выносливости",
+  "UI_PZNeedsPlus_CarryWeight": "Переносимый вес",
+  "UI_PZNeedsPlus_Carry1": "1× (стандарт)",
+  "UI_PZNeedsPlus_Carry2": "2×",
+  "UI_PZNeedsPlus_Carry3": "3×",
+  "UI_PZNeedsPlus_Carry7": "7×"
 }
